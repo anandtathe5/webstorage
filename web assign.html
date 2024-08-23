@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Storage Assignment</title>
+</head>
+<body>
+    <h1>Local Storage Assignment</h1>
+    <button onclick="addToLocalStorage()">Add Data to Local Storage</button>
+    <button onclick="removeCity()">Remove City from Local Storage</button>
+    <button onclick="displayLocalStorage()">Display Local Storage</button>
+    <pre id="storageContent"></pre>
+
+    <script>
+        function addToLocalStorage() {
+            // Adding data to local storage
+            localStorage.setItem('name', 'Your Full Name');
+            localStorage.setItem('city', 'Your City Name');
+            localStorage.setItem('pinCode', 'Your Pin Code');
+            localStorage.setItem('district', 'Your District Name');
+            alert('Data added to Local Storage');
+        }
+
+        function removeCity() {
+            // Removing the 'city' item from local storage
+            localStorage.removeItem('city');
+            alert('City removed from Local Storage');
+        }
+
+        function displayLocalStorage() {
+            // Displaying the contents of local storage
+            let storageContent = '';
+            for (let i = 0; i < localStorage.length; i++) {
+                let key = localStorage.key(i);
+                let value = localStorage.getItem(key);
+                storageContent += `${key}: ${value}\n`;
+            }
+            document.getElementById('storageContent').innerText = storageContent;
+        }
+    </script>
+</body>
+</html>
